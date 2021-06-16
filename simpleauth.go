@@ -1,7 +1,6 @@
 package simpleauth
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 )
@@ -30,7 +29,6 @@ func (s *Server) Serve() {
 			goto unAuth
 		}
 		auths = strings.Split(cred, " ")
-		fmt.Println(auths)
 		if auths[0] == "Basic" && encodeString([]byte(s.cred)) == auths[1] {
 			goto Auth
 		}
