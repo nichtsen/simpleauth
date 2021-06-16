@@ -13,7 +13,7 @@ func main() {
 		user string
 		pwd  string
 	)
-	flag.StringVar(&root, "i", "index.html", "path to index.html to serve")
+	flag.StringVar(&root, "i", "", "path to index.html to serve")
 	flag.StringVar(&user, "u", "user", "user name")
 	flag.StringVar(&pwd, "p", "pwd@2333", "password")
 	flag.Parse()
