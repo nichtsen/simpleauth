@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"simpleauth"
+	"github.com/nichtsen/simpleauth"
 )
 
 func main() {
