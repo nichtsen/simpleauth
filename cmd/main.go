@@ -17,9 +17,6 @@ func main() {
 	flag.StringVar(&user, "u", "user", "user name")
 	flag.StringVar(&pwd, "p", "pwd@2333", "password")
 	fmt.Println(root, user, pwd)
-	server := &simpleauth.Server{
-		cred: user + ":" + "pwd",
-		root: root,
-	}
+	server := simpleauth.New(user+":"+pwd, root)
 	server.Serve()
 }

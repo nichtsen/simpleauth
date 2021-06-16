@@ -11,6 +11,13 @@ type Server struct {
 	root string
 }
 
+func New(cred, root string) *Server {
+	return &Server{
+		cred: cred,
+		root: root,
+	}
+}
+
 func (s *Server) Serve() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		var (
