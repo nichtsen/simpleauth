@@ -45,7 +45,8 @@ func (s *Server) Serve() {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	Auth:
-		http.ServeFile(w, r, s.root)
+		handler := http.FileServer(http.Dir(s.root))
+		handler.ServeHTTP(w, r)
 	})
 	http.ListenAndServe(":30808", nil)
 }
