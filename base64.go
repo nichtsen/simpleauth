@@ -6,7 +6,7 @@ import (
 )
 
 func decodeString(str string) string {
-	b, err := base64.RawStdEncoding.DecodeString(str)
+	b, err := base64.StdEncoding.DecodeString(str)
 	if err != nil {
 		log.Printf("failed to decode: \n %v", err)
 		return ""
@@ -15,5 +15,5 @@ func decodeString(str string) string {
 }
 
 func encodeString(b []byte) string {
-	return base64.RawStdEncoding.EncodeToString(b)
+	return base64.StdEncoding.EncodeToString(b)
 }

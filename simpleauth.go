@@ -24,6 +24,7 @@ func (s *Server) Serve() {
 			cred  string
 			auths []string
 		)
+		r.BasicAuth()
 		cred = r.Header.Get("Authorization")
 		if cred == "" {
 			goto unAuth
@@ -32,14 +33,7 @@ func (s *Server) Serve() {
 		fmt.Println(auths)
 		if auths[0] == "Basic" && encodeString([]byte(s.cred)) == auths[1] {
 			goto Auth
-		} else {
-			str := encodeString([]byte(s.cred))
-			if len(str) < len(auths[1]) && str == auths[1][:len(str)] {
-				goto Auth
-			}
-			fmt.Printf("%v: %v ", encodeString([]byte(s.cred)), auths[1])
 		}
-
 	unAuth:
 		w.Header().Set("WWW-Authenticate", "Basic realm=\"test@google.com\"")
 		w.WriteHeader(http.StatusUnauthorized)
