@@ -2,5 +2,5 @@
 ```shell
 git clone 
 cd simpleauth/cmd
-go run main.go -i index.html -u user -p passwd
+go run main.go  -u user -p passwd
 ```
