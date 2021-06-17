@@ -23,7 +23,7 @@ func (s *Server) Serve() {
 			cred  string
 			auths []string
 		)
-		r.BasicAuth()
+		// r.BasicAuth()
 		cred = r.Header.Get("Authorization")
 		if cred == "" {
 			goto unAuth
